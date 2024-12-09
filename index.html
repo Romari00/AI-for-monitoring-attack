@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Монитор безопасности</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Монитор безопасности</h1>
+        </header>
+        <main>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Дата и время</th>
+                        <th>Результат анализа</th>
+                        <th>Риск</th>
+                        <th>Идентификатор источника</th>
+                        <th>Протокол</th>
+                        <th>Источник</th>
+                        <th>Назначение</th>
+                        <th>Событие безопасности</th>
+                        <th>Действие</th>
+                    </tr>
+                </thead>
+                <tbody id="events-table">
+                    <tr>
+                        <td>16.11.2024 20:45</td>
+                        <td>Alert</td>
+                        <td>Высокая</td>
+                        <td>debugger</td>
+                        <td>TCP</td>
+                        <td>192.168.0.1</td>
+                        <td>22.33.44.55</td>
+                        <td>VIRUS WANNACRY</td>
+                        <td><button class="assistant-btn" onclick="queryAI(this)">Ассистент ИИ</button></td>
+                    </tr>
+                    <tr>
+                        <td>16.11.2024 21:10</td>
+                        <td>Notice</td>
+                        <td>Средняя</td>
+                        <td>firewall</td>
+                        <td>UDP</td>
+                        <td>192.168.0.10</td>
+                        <td>10.0.0.5</td>
+                        <td>PORT SCAN</td>
+                        <td><button class="assistant-btn" onclick="queryAI(this)">Ассистент ИИ</button></td>
+                    </tr>
+                    <tr>
+                        <td>16.11.2024 22:00</td>
+                        <td>Alert</td>
+                        <td>Критическая</td>
+                        <td>snort</td>
+                        <td>ICMP</td>
+                        <td>10.10.10.1</td>
+                        <td>8.8.8.8</td>
+                        <td>DDOS ATTACK</td>
+                        <td><button class="assistant-btn" onclick="queryAI(this)">Ассистент ИИ</button></td>
+                    </tr>
+                    <tr>
+                        <td>17.11.2024 00:15</td>
+                        <td>Warning</td>
+                        <td>Низкая</td>
+                        <td>IDS</td>
+                        <td>HTTP</td>
+                        <td>172.16.0.3</td>
+                        <td>45.33.22.1</td>
+                        <td>SQL INJECTION</td>
+                        <td><button class="assistant-btn" onclick="queryAI(this)">Ассистент ИИ</button></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div id="assistant-result" style="margin-top: 20px; padding: 10px; border: 1px solid #ccc;">
+                <p>Здесь появится результат анализа.</p>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
