@@ -5,19 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Монитор безопасности</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>Монитор безопасности</h1>
+            <h1>Монитор событий информационной безопасности</h1>
         </header>
         <main>
             <table>
                 <thead>
                     <tr>
+                        <th>№</th>
                         <th>Дата и время</th>
                         <th>Результат анализа</th>
-                        <th>Риск</th>
+                        <th>Критичность</th>
                         <th>Идентификатор источника</th>
                         <th>Протокол</th>
                         <th>Источник</th>
@@ -28,56 +30,266 @@
                 </thead>
                 <tbody id="events-table">
                     <tr>
-                        <td>16.11.2024 20:45</td>
+                        <td>1</td>
+                        <td class="event-date">16.11.2024 20:45</td>
                         <td>Alert</td>
                         <td>Высокая</td>
-                        <td>debugger</td>
+                        <td>Отладчик</td>
                         <td>TCP</td>
                         <td>192.168.0.1</td>
-                        <td>22.33.44.55</td>
+                        <td>192.168.166.31</td>
                         <td>VIRUS WANNACRY</td>
-                        <td><button class="assistant-btn" onclick="queryAI(this)">Ассистент ИИ</button></td>
+                        <td><button class="assistant-btn" onclick="queryAI(this)">Сформировать отчёт</button></td>
                     </tr>
                     <tr>
-                        <td>16.11.2024 21:10</td>
+                        <td>2</td>
+                        <td class="event-date">16.11.2024 21:10</td>
                         <td>Notice</td>
                         <td>Средняя</td>
-                        <td>firewall</td>
+                        <td>Межсетевой экран</td>
                         <td>UDP</td>
                         <td>192.168.0.10</td>
-                        <td>10.0.0.5</td>
+                        <td>192.168.166.31</td>
                         <td>PORT SCAN</td>
-                        <td><button class="assistant-btn" onclick="queryAI(this)">Ассистент ИИ</button></td>
+                        <td><button class="assistant-btn" onclick="queryAI(this)">Сформировать отчёт</button></td>
                     </tr>
                     <tr>
-                        <td>16.11.2024 22:00</td>
+                        <td>3</td>
+                        <td class="event-date">16.11.2024 22:00</td>
                         <td>Alert</td>
-                        <td>Критическая</td>
-                        <td>snort</td>
+                        <td>Высокая</td>
+                        <td>Система обнаружения атак</td>
                         <td>ICMP</td>
                         <td>10.10.10.1</td>
-                        <td>8.8.8.8</td>
+                        <td>192.168.166.31</td>
                         <td>DDOS ATTACK</td>
-                        <td><button class="assistant-btn" onclick="queryAI(this)">Ассистент ИИ</button></td>
+                        <td><button class="assistant-btn" onclick="queryAI(this)">Сформировать отчёт</button></td>
                     </tr>
                     <tr>
-                        <td>17.11.2024 00:15</td>
+                        <td>4</td>
+                        <td class="event-date">17.11.2024 15:15</td>
                         <td>Warning</td>
                         <td>Низкая</td>
-                        <td>IDS</td>
+                        <td>Антивирус</td>
                         <td>HTTP</td>
                         <td>172.16.0.3</td>
-                        <td>45.33.22.1</td>
+                        <td>192.168.166.31</td>
                         <td>SQL INJECTION</td>
-                        <td><button class="assistant-btn" onclick="queryAI(this)">Ассистент ИИ</button></td>
+                        <td><button class="assistant-btn" onclick="queryAI(this)">Сформировать отчёт</button></td>
                     </tr>
+                    <tr>
+                        <td>5</td>
+                        <td class="event-date">13.12.2024 04:15</td>
+                        <td>Alert</td>
+                        <td>Средняя</td>
+                        <td>Windows</td>
+                        <td>SSH</td>
+                        <td>1.186.21.245</td>
+                        <td>192.168.166.31</td>
+                        <td>BrutForce SSH</td>
+                        <td><button class="assistant-btn" onclick="queryAI(this)">Сформировать отчёт</button></td>
+                    </tr>
+                    <tr>
+                    <td>6</td>
+                    <td class="event-date">14.12.2024 09:30</td>
+                    <td>Alert</td>
+                    <td>Высокая</td>
+                    <td>Сетевой экран</td>
+                    <td>TCP</td>
+                    <td>10.20.30.40</td>
+                    <td>192.168.166.31</td>
+                    <td>RANSOMWARE DETECTION</td>
+                    <td><button class="assistant-btn" onclick="queryAI(this)">Сформировать отчёт</button></td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td class="event-date">14.12.2024 15:45</td>
+                    <td>Notice</td>
+                    <td>Средняя</td>
+                    <td>IPS</td>
+                    <td>ICMP</td>
+                    <td>172.16.1.1</td>
+                    <td>192.168.166.31</td>
+                    <td>PING FLOOD</td>
+                    <td><button class="assistant-btn" onclick="queryAI(this)">Сформировать отчёт</button></td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td class="event-date">15.12.2024 07:10</td>
+                    <td>Warning</td>
+                    <td>Низкая</td>
+                    <td>Антивирус</td>
+                    <td>HTTP</td>
+                    <td>8.8.8.8</td>
+                    <td>192.168.166.31</td>
+                    <td>MALWARE DETECTION</td>
+                    <td><button class="assistant-btn" onclick="queryAI(this)">Сформировать отчёт</button></td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td class="event-date">15.12.2024 14:20</td>
+                    <td>Alert</td>
+                    <td>Высокая</td>
+                    <td>Файрвол</td>
+                    <td>UDP</td>
+                    <td>192.0.2.5</td>
+                    <td>192.168.166.31</td>
+                    <td>DNS TUNNELING</td>
+                    <td><button class="assistant-btn" onclick="queryAI(this)">Сформировать отчёт</button></td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td class="event-date">15.12.2024 18:30</td>
+                    <td>Alert</td>
+                    <td>Средняя</td>
+                    <td>Сетевой монитор</td>
+                    <td>SMTP</td>
+                    <td>203.0.113.12</td>
+                    <td>192.168.166.31</td>
+                    <td>EMAIL SPAM</td>
+                    <td><button class="assistant-btn" onclick="queryAI(this)">Сформировать отчёт</button></td>
+                </tr>
+                <tr>
+                    <td>11</td>
+                    <td class="event-date">16.12.2024 03:45</td>
+                    <td>Warning</td>
+                    <td>Низкая</td>
+                    <td>Отладчик</td>
+                    <td>TCP</td>
+                    <td>10.10.10.10</td>
+                    <td>192.168.166.31</td>
+                    <td>WEBSITE CRAWLING</td>
+                    <td><button class="assistant-btn" onclick="queryAI(this)">Сформировать отчёт</button></td>
+                </tr>
+                <tr>
+                    <td>12</td>
+                    <td class="event-date">16.12.2024 06:00</td>
+                    <td>Alert</td>
+                    <td>Высокая</td>
+                    <td>IPS</td>
+                    <td>TCP</td>
+                    <td>1.1.1.1</td>
+                    <td>192.168.166.31</td>
+                    <td>SYN FLOOD ATTACK</td>
+                    <td><button class="assistant-btn" onclick="queryAI(this)">Сформировать отчёт</button></td>
+                </tr>
+                <tr>
+                    <td>13</td>
+                    <td class="event-date">17.12.2024 10:10</td>
+                    <td>Notice</td>
+                    <td>Низкая</td>
+                    <td>Антивирус</td>
+                    <td>FTP</td>
+                    <td>192.168.5.10</td>
+                    <td>192.168.166.31</td>
+                    <td>FTP BRUTEFORCE</td>
+                    <td><button class="assistant-btn" onclick="queryAI(this)">Сформировать отчёт</button></td>
+                </tr>
+                <tr>
+                    <td>14</td>
+                    <td class="event-date">18.12.2024 14:15</td>
+                    <td>Alert</td>
+                    <td>Средняя</td>
+                    <td>Фильтр трафика</td>
+                    <td>HTTP</td>
+                    <td>185.45.67.23</td>
+                    <td>192.168.166.31</td>
+                    <td>XSS DETECTION</td>
+                    <td><button class="assistant-btn" onclick="queryAI(this)">Сформировать отчёт</button></td>
+                </tr>
+                <tr>
+                    <td>15</td>
+                    <td class="event-date">18.12.2024 18:50</td>
+                    <td>Alert</td>
+                    <td>Высокая</td>
+                    <td>Отладчик</td>
+                    <td>SSH</td>
+                    <td>10.0.0.5</td>
+                    <td>192.168.166.31</td>
+                    <td>SSH BRUTEFORCE</td>
+                    <td><button class="assistant-btn" onclick="queryAI(this)">Сформировать отчёт</button></td>
+                </tr>
+                <tr>
+                    <td>16</td>
+                    <td class="event-date">19.12.2024 22:15</td>
+                    <td>Warning</td>
+                    <td>Низкая</td>
+                    <td>Антивирус</td>
+                    <td>UDP</td>
+                    <td>192.168.0.8</td>
+                    <td>192.168.166.31</td>
+                    <td>MALWARE TRAFFIC</td>
+                    <td><button class="assistant-btn" onclick="queryAI(this)">Сформировать отчёт</button></td>
+                </tr>
+                <tr>
+                    <td>17</td>
+                    <td class="event-date">20.12.2024 01:25</td>
+                    <td>Notice</td>
+                    <td>Низкая</td>
+                    <td>Мониторинг</td>
+                    <td>ICMP</td>
+                    <td>10.2.3.4</td>
+                    <td>192.168.166.31</td>
+                    <td>HEARTBEAT CHECK</td>
+                    <td><button class="assistant-btn" onclick="queryAI(this)">Сформировать отчёт</button></td>
+                </tr>
+                <tr>
+                    <td>18</td>
+                    <td class="event-date">20.12.2024 03:10</td>
+                    <td>Alert</td>
+                    <td>Высокая</td>
+                    <td>Система безопасности</td>
+                    <td>HTTP</td>
+                    <td>45.33.21.12</td>
+                    <td>192.168.166.31</td>
+                    <td>SQL INJECTION DETECTED</td>
+                    <td><button class="assistant-btn" onclick="queryAI(this)">Сформировать отчёт</button></td>
+                </tr>
+                <tr>
+                    <td>19</td>
+                    <td class="event-date">20.12.2024 07:40</td>
+                    <td>Warning</td>
+                    <td>Средняя</td>
+                    <td>Firewall</td>
+                    <td>TCP</td>
+                    <td>172.16.4.3</td>
+                    <td>192.168.166.31</td>
+                    <td>PORT SCAN DETECTION</td>
+                    <td><button class="assistant-btn" onclick="queryAI(this)">Сформировать отчёт</button></td>
+                </tr>
                 </tbody>
             </table>
-            <div id="assistant-result" style="margin-top: 20px; padding: 10px; border: 1px solid #ccc;">
-                <p>Здесь появится результат анализа.</p>
-            </div>
+<div class="result-container">
+    <div id="assistant-result" style="padding: 10px; border: 1px solid #ccc;">
+        <p>Отчет по событиям безопасности и рекомендации по повышению защищенности объекта контроля.</p>
+    </div>
+    <div id="loading-indicator" style="display: none;"></div>
+    <div>
+        <p><strong>Статистика критичности инцидентов</strong></p>
+        <canvas id="threat-chart"></canvas>
+    </div>
+</div>
+
         </main>
     </div>
-    <script src="script.js"></script>
 </body>
+
+
+<footer>
+    <p><strong>Статистика по событиям</strong></p>
+
+    <div class="date-chart-container">
+        <canvas id="date-chart"></canvas>
+    </div>
+    <div id="timeframe-buttons">
+    <button class="time-btn" data-period="day">День</button>
+    <button class="time-btn" data-period="month">Месяц</button>
+    <button class="time-btn" data-period="year">Год</button>
+</div>
+</footer>
+
+
+
+<script src="script.js"></script>
+
 </html>
